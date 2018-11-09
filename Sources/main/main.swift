@@ -1,13 +1,17 @@
-import HTTP
+import Log
+import Web
 import Fiber
 import TrisProject
 
 async.use(Fiber.self)
 
 async.main {
-    let server = try Server(host: "localhost", port: 8080)
-    try registerRoutes(in: server)
-    try server.start()
+    do {
+        let server = try WebHost(bootstrap: TrisProject())
+        try server.run()
+    } catch {
+        Log.critical(String(describing: error))
+    }
 }
 
 async.loop.run()

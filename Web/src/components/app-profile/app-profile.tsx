@@ -1,5 +1,4 @@
 import { Component, Prop, State } from '@stencil/core';
-import { sayHello } from '../../helpers/utils';
 
 @Component({
   tag: 'app-profile',
@@ -8,6 +7,17 @@ import { sayHello } from '../../helpers/utils';
 export class AppProfile {
   @State() state = false;
   @Prop() name: string;
+
+  apiRootUrl: string = 'http://localhost:8080/api/v0';
+  @State() welcome: String;
+
+  componentWillLoad() {
+    fetch(`${this.apiRootUrl}/welcome`).then((response: any) => {
+      return response.text()
+    }).then((message) => {
+      this.welcome = message;
+    });
+  }
 
   formattedName(): string {
     if (this.name) {
@@ -29,7 +39,7 @@ export class AppProfile {
 
       <ion-content padding>
         <p>
-          {sayHello()}! My name is {this.formattedName()}. My name was passed in through a
+        {this.welcome}! This '{this.welcome}' was fetched from the api! My name is {this.formattedName()}. My name was passed in through a
           route param!
         </p>
 

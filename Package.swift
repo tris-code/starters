@@ -9,7 +9,7 @@ let package = Package(
             url: "https://github.com/tris-foundation/fiber.git",
             .branch("master")),
         .package(
-            url: "https://github.com/tris-foundation/http.git",
+            url: "https://github.com/tris-foundation/web.git",
             .branch("master")),
         .package(
             url: "https://github.com/tris-foundation/test.git",
@@ -18,10 +18,10 @@ let package = Package(
     targets: [
         .target(
             name: "main",
-            dependencies: ["Fiber", "HTTP", "TrisProject"]),
+            dependencies: ["Fiber", "Web", "TrisProject"]),
         .target(
             name: "TrisProject",
-            dependencies: ["HTTP"]),
+            dependencies: ["Web"]),
         .testTarget(
             name: "TrisProjectTests",
             dependencies: ["Test", "TrisProject"])
