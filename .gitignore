@@ -3,3 +3,6 @@
 /Packages
 /*.xcodeproj
 /Package.resolved
+node_modules
+.stencil
+build
