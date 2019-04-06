@@ -6,13 +6,13 @@ let package = Package(
     name: "TrisProject",
     dependencies: [
         .package(
-            url: "https://github.com/tris-foundation/fiber.git",
+            url: "https://github.com/tris-code/fiber.git",
             .branch("master")),
         .package(
-            url: "https://github.com/tris-foundation/web.git",
+            url: "https://github.com/tris-code/web.git",
             .branch("master")),
         .package(
-            url: "https://github.com/tris-foundation/test.git",
+            url: "https://github.com/tris-code/test.git",
             .branch("master"))
     ],
     targets: [
